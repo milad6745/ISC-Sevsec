@@ -20,7 +20,7 @@ root@k8s01:~# kubectl get felixconfiguration default -o yaml | grep -i BPF
 ```
 
 2- install gvisor انجام شده است
-
+```
 kubectl get runtimeclass
 
 NAME        HANDLER
@@ -40,6 +40,7 @@ kubectl get pod POD-NAME -n NAMESPACE -o yaml | grep -A3 seccomp
 kubectl get pod POD-NAME -n NAMESPACE -o jsonpath='{.metadata.annotations}'
 seccomp.security.alpha.kubernetes.io/pod: runtime/default
 ```
+
 4- use afiinity & node selector
 ```
 kubectl get deploy -A -o yaml | grep -A5 nodeSelector
@@ -48,6 +49,7 @@ kubectl get pods -A -o yaml | grep -A5 nodeSelector
 kubectl get deploy -A -o yaml | grep -A20 affinity
 kubectl get pods -A -o yaml | grep -A20 affinity
 ```
+
 5-check default deny on CNI
 ```
 kubectl get networkpolicy --all-namespaces
